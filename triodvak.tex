@@ -1,0 +1,243 @@
+\input{text/diss}
+
+\begin{document}
+
+\def\labauthors{Карусевич А.А., Разова А.А.}
+\def\labgroup{440}
+\def\labnumber{2}
+\def\labtheme{Исследование принципов статического управления электронным потоком в триоде}
+\renewcommand{\vec}{\mathbf}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\hat}{\widehat}
+
+\input{text/titlepage}
+
+\section{Теоретическая часть}
+\subsection{Устройство и принцип работы триода}
+Триод отличается от диода наличием дополнительного электрода - сетки, расположенной между катодом и анодом. Поэтому анодный ток триода $J_a$ может управляться не только изменением потенциала анода $U_a$, но и изменением потенциала сетки $U_c$, т.е
+
+\begin{equation}
+	J_a=J_a (U_c,U_a).
+\end{equation}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/img3.jpg}
+	\caption{Конструкция триода}
+	\label{fig:1}
+\end{figure}
+Триод является усилителем тока, а при определенных условиях, - и напряжения. Основным рабочим режимом триода является, как и в диоде, режим ограничения тока пространственным зарядом. 
+
+\subsection{Вольт-амперные характеристики триода}
+
+Для описания свойств триода необходимо знать зависимости сеточного и анодного токов от подаваемых напряжений:
+\begin{equation}
+	J_a=J_a (U_c,U_a).
+\end{equation}
+
+\begin{equation}
+	J_c=J_c (U_c,U_a).
+\end{equation}
+
+Наиболее важной для практических приложений является зависимость для анодного тока. Поскольку она является двумерной, для ее описания используют две одномерные зависимости:
+\begin{equation}
+	J_a=J_a (U_a), U_c=const
+\end{equation}
+и
+\begin{equation}
+	J_a=J_a (U_c), U_a=const
+\end{equation}
+
+Первая зависимость называется анодной характеристикой, вторая анодно-сеточной.
+
+Можно показать, что для поля электродов плоского триода:
+\begin{equation}
+	E_{\text{эл}} = \frac{U_c+DU_a}{d_{kc}[1+D(1+d_{ca}/d_{kc})]},
+\end{equation}
+где 
+\begin{equation}
+	D \approx \frac{s}{2\pi d_{ca}}\ln{\frac{s}{2\pi \rho}}
+\end{equation}
+
+Коэффициент D определяет ту часть электрического поля вблизи катода, которая обусловлена присутствием анода и связана с "провисанием" потенциала $U_a$ через промежутки между витками сетки. Чем теснее расположены витки и чем толще проволока сетки, тем меньше D. Это позволяет назвать D проницаемостью сетки. Обычно $D \ll 1$, поэтому можно приближенно положить
+\begin{equation}
+	E = \frac{1}{d_{kc}}(U_c+DU_a)
+\end{equation}
+
+Тогда катодный ток в плоском триоде:
+\begin{equation}
+J_k=\frac49 \varepsilon_0 \sqrt{2 \eta} S_a \frac{(U_c+DU_a)^{3/2}}{d_{kc}^2}, 
+\end{equation}
+или в общем случае
+\begin{equation}
+J_k=P(U_c+DU_a)^{3/2}, 
+\end{equation}
+где  P-превеанс триода.
+
+\subsection{Параметры триода}
+Триод принято характеризовать тремя параметрами. Величина
+\begin{equation}
+	S= \pdv{J_a}{U_c} \eval _{U_a}, 
+\end{equation}
+является отношением бесконечно малых приращений анодного тока и напряжения на сетке и называется крутизной триода. 
+
+Параметр 
+\begin{equation}
+	R= \pdv{U_a}{J_a} \eval _{U_c}, 
+\end{equation}
+называется внутренним сопротивлением. Геометрически этот параметр характеризует наклон анодных характеристик триода,
+т.е. кривых, выражающих зависимость анодного тока от анодного напряжения при постоянном потенциале  
+сетки.
+
+Важным свйством триода, определяющим его способность усиливать напряжение является то, что малые 
+изменения потенциала сетки эквивалентны в смысле воздействия на анодный ток большим изменениям 
+потенциала анода, т.к. анод экранирован сеткой от катода и расположен от последнего дальше, 
+чем сетка. Это свойство характеризуется коэффициентом усиления по напряжению:
+\begin{equation}
+	\mu= \pdv{U_a}{U_c} \eval _{J_a}, 
+\end{equation}
+
+Статические параметры не являются независимыми, а связаны соотношением:
+\begin{equation}
+	\mu= S \cdot R_i, 
+\end{equation}
+которое называется внутренним уравнением триода.
+
+\section{Экспериментальная часть}
+\subsection{Экспериментальная установка}
+Схема установки:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/img4.jpg}
+	\caption{Схема экспериментальной установки}
+	\label{fig:10}
+\end{figure}
+
+Блок режимов (1) обеспечивает требуемые напряжения на электродах исследуемой электронной 
+лампы-триода. Исследуемый триод размещается на верхней панели измерительного блока (2), 
+там же расположены элементы коммутации, позволяющие изменять схему включения триода. Для 
+контроля режима лампы по постоянному току используются стрелочные лабораторные вольтметры 
+и миллиамперметр ЛМ-1 (3). Звуковой генератор Г3-112 (4) обеспечивает подачу переменного 
+напряжения для реализации метода переменной составляющей. Для измерения значений переменного 
+напряжения используется аналоговый милливольтметр переменного тока В3-38 (5).
+
+\subsection{Задание 1}
+\begin{figure}[h!]
+ 	\centering
+	\includegraphics[width=0.5\linewidth]{fig/img5.jpg}
+ 	\caption{К заданию 1}
+ 	\label{fig:11}
+\end{figure}
+
+Проведите измерения следующих зависимостей:
+
+а) Ia = f(Uс) при Uа = 220 В; 
+
+б) Ia = f(Uс) при Uа = 150 В;
+
+в) S = f(Uс) при Uа = 220 В; 
+
+г) S = f(Uа) при Uс = -8 В.
+
+\subsection{Задание 2}
+\begin{figure}[h!]
+ 	\centering
+	\includegraphics[width=0.5\linewidth]{fig/img6.jpg}
+ 	\caption{К заданию 2}
+ 	\label{fig:11}
+\end{figure}
+
+Проведите измерения следующих зависимостей:
+
+а) Ia = f(Uа) при Uс = - 8 В;
+
+б) Ia = f(Uа) при Uс = - 6 В;
+
+в) Ri = f(Uа) при Uс = - 8 В;
+
+г) Ri = f(Uc) при Ua = 220 В.
+
+\subsection{Задание 3}
+По результатам измерений постройте графики зависимости от напряжения на сетке и на 
+аноде ламы:
+
+а) анодного тока
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{scripts/z01.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{scripts/z02.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+б) крутизны
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/img11.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/img12.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+в) внутреннего сопротивления
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/img21.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/img22.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+г) статического коэффициента усиления по напряжению
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{fig/img31.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/img32.png}
+	\caption{}
+	\label{fig:10}
+\end{figure}
+
+
+Погрешность анодного напряжения $\Delta U_a = 2 B$.
+
+Погрешность анодного тока $\Delta J_a = 0.1 mA$.
+
+Погрешность сеточного напряжения $\Delta U_c = 0.1 B$.
+
+Формулы для рассчета погрешности крутизны:
+\begin{gather*}
+	S=\frac{U_{out}}{U_{in}} \frac{1}{R_a}, \\
+	\Delta S=  \frac{1}{R_a U_{in}}(\Delta U_{out}+\frac{U_{out}}{U_{in}}\Delta U_{in}). 
+\end{gather*}
+
+и внутреннего сопротивления:
+\begin{gather*}
+	R=\frac{U_{in}}{U_{out}} R_a, \\
+	\Delta R=  \frac{R_a}{U_{out}}(\Delta U_{in}+\frac{U_{in}}{U_{out}}\Delta U_{out}). 
+\end{gather*}
+
+\end{document}
